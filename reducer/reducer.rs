@@ -1,29 +1,26 @@
+extern crate collections;
+
 use std::io;
-use std::cmp::max;
+use collections::HashMap;
 
 fn main() {
-    let mut max_temp = std::int::MIN;
-    let mut last_year: &str = "";
+    let mut map: HashMap<int, int> = HashMap::new();
 
     for line in io::stdin().lines() {
         let line = line.unwrap();
         let data: ~[&str] = line.split('\t').collect();
 
         match data.as_slice() {
-            [year, temp] => {
-                let temp = from_str::<int>(temp.slice_to(temp.len() - 1)).unwrap();
-                if last_year != "" && last_year != year {
-                    println!("{}\t{}", last_year, max_temp);
-                    max_temp = temp;
-                } else {
-                    max_temp = max(max_temp, temp);
-                }
+            [year, temp_str] => {
+                let year = from_str::<int>(year).unwrap();
+                let temp = from_str::<int>(temp_str.trim_right()).unwrap();
+                let cmp = |_: &int, t: &mut int| if temp > *t { *t = temp };
 
-                last_year = year;
+                map.insert_or_update_with(year, temp, cmp);
             },
             _ => {}
         }
     }
 
-    if last_year != "" { println!("{}\t{}", last_year, max_temp); }
+    for (y, t) in map.iter() { println!("{}\t{}", y, t); }
 }
