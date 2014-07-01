@@ -17,23 +17,23 @@ Developed against Rust v0.10
 1. Compile mapper and reducer
 
   ```bash
-  $ rustc mapper/ncdc_mapper.rs && rustc reducer/ncdc_reducer.rs
+  $ rustc src/mapper.rs && rustc src/reducer.rs
   ```
 
 2. (optional) Check whether everything works fine
 
   ```bash
-  $ cat samples/sample.txt | ./ncdc_mapper | ./ncdc_reducer
+  $ cat samples/sample.txt | ./mapper | ./reducer
   ```
 
 3. Run hadoop
 
   ```bash
   $ hadoop jar $HADOOP_INSTALL/hadoop-streaming-*.jar \
-               -input ncdc_data \
-               -output output \
-               -mapper ncdc_mapper \
-               -reducer ncdc_reducer
+               -input   ncdc_data \
+               -output  output \
+               -mapper  mapper \
+               -reducer reducer
   ```
 
 4. ...
