@@ -1,4 +1,4 @@
-# Hadoop Strteaming using Rust
+# Hadoop Streaming using Rust
 
 ### Description
 
