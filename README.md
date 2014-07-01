@@ -15,23 +15,26 @@ Developed against Rust v0.10
 ### Usage
 
 1. Compile mapper and reducer
-```bash
-$ rustc mapper/ncdc_mapper.rs && rustc reducer/ncdc_reducer.rs
-```
+
+  ```bash
+  $ rustc mapper/ncdc_mapper.rs && rustc reducer/ncdc_reducer.rs
+  ```
 
 2. (optional) Check whether everything works fine
-```bash
-$ cat samples/sample.txt | ./ncdc_mapper | ./ncdc_reducer
-```
+
+  ```bash
+  $ cat samples/sample.txt | ./ncdc_mapper | ./ncdc_reducer
+  ```
 
 3. Run hadoop
-```bash
-$ hadoop jar $HADOOP_INSTALL/hadoop-streaming-*.jar \
-             -input ncdc_data \
-             -output output \
-             -mapper ncdc_mapper \
-             -reducer ncdc_reducer
-```
+
+  ```bash
+  $ hadoop jar $HADOOP_INSTALL/hadoop-streaming-*.jar \
+               -input ncdc_data \
+               -output output \
+               -mapper ncdc_mapper \
+               -reducer ncdc_reducer
+  ```
 
 4. ...
 
