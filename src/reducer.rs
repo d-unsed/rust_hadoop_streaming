@@ -1,14 +1,14 @@
 extern crate collections;
 
 use std::io;
-use collections::HashMap;
+use std::collections::HashMap;
 
 fn main() {
     let mut map: HashMap<int, int> = HashMap::new();
 
     for line in io::stdin().lines() {
         let line = line.unwrap();
-        let data: ~[&str] = line.split('\t').collect();
+        let data: Vec<&str> = line.as_slice().split('\t').collect();
 
         match data.as_slice() {
             [year, temp] => {

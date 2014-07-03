@@ -10,7 +10,8 @@ It's another example of using Hadoop Streaming for
 [Hadoop: The Definitive Guide](http://www.amazon.com/Hadoop-Definitive-Guide-Tom-White/dp/1449311520)
 book.
 
-Developed against Rust v0.10
+Developed against Rust v0.11. You can also view the previous version for v0.10 on the
+[rust-0.10 branch](https://github.com/d-unseductable/rust_hadoop_streaming/tree/rust-0.10).
 
 ### Usage
 
