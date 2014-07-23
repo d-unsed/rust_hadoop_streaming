@@ -1,0 +1,6 @@
+# Executable files
+/mapper
+/reducer
+
+# Hadoop's output
+output/*
