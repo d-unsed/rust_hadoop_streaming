@@ -9,9 +9,9 @@ fn main() {
 
         let year = l.slice(15, 19);
         let temperature = l.slice(87, 92);
-        let q = l[92];
+        let q = l.char_at(92);
 
-        if temperature != "+9999" && quality.iter().any(|e| q == *e as u8) {
+        if temperature != "+9999" && quality.iter().any(|e| q == *e) {
             println!("{}\t{}", year, temperature);
         }
     }
