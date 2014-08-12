@@ -18,7 +18,7 @@ Developed against Rust v0.11. You can also view the previous version for v0.10 o
 1. Compile mapper and reducer
 
   ```bash
-  $ rustc src/mapper.rs && rustc src/reducer.rs
+  $ rustc -O src/mapper.rs && rustc -O src/reducer.rs
   ```
 
 2. (optional) Check whether everything works fine
