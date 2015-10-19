@@ -10,11 +10,11 @@ fn main() {
         let line = line.unwrap().to_string();
 
         ((&line[15..19]).to_string(), (&line[87..92]).to_string(), line.chars().nth(92).unwrap())
+    }).filter(|&(_, ref temperature, ref quality)| {
+        temperature != "+9999" && valid_quality.contains(&quality)
     }).collect();
 
-    for (year, temperature, quality) in data {
-        if temperature != "+9999" && valid_quality.contains(&quality) {
-            println!("{}\t{}", year, temperature);
-        }
+    for (year, temperature, _) in data {
+        println!("{}\t{}", year, temperature);
     }
 }
