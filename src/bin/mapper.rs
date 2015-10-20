@@ -1,20 +1,29 @@
+extern crate itertools;
+
 use std::io;
 use std::io::BufRead;
+
+use itertools::Itertools;
 
 fn main() {
     let reader = io::stdin();
 
     let valid_quality = vec!['0', '1', '4', '5', '9'];
 
-    let data: Vec<(String, String, char)> = reader.lock().lines().map(|line| {
+    reader.lock().lines().map(|line| {
+        // Read input lines and slice data
         let line = line.unwrap().to_string();
 
-        ((&line[15..19]).to_string(), (&line[87..92]).to_string(), line.chars().nth(92).unwrap())
-    }).filter(|&(_, ref temperature, ref quality)| {
-        temperature != "+9999" && valid_quality.contains(&quality)
-    }).collect();
+        let year = (&line[15..19]).to_string();
+        let temperature = (&line[87..92]).to_string();
+        let quality = line.chars().nth(92).unwrap();
 
-    for (year, temperature, _) in data {
+        (year, temperature, quality)
+    }).filter(|&(_, ref temperature, ref quality)| {
+        // Filter records with proper quality
+        temperature != "+9999" && valid_quality.contains(&quality)
+    }).foreach(|(year, temperature, _)| {
+        // Print results
         println!("{}\t{}", year, temperature);
-    }
+    });
 }

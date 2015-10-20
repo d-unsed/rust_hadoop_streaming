@@ -3,9 +3,11 @@ name = "rust_hadoop_streaming"
 version = "0.1.0"
 authors = ["Dmitry Gritsay <unseductable@gmail.com>"]
 description = "An example of using Hadoop Streaming in Rust"
-
 repository = "https://github.com/d-unseductable/rust_hadoop_streaming"
 readme = "README.md"
+
+[dependencies]
+itertools = "0.4.1"
 
 [[bin]]
 name = "mapper"
