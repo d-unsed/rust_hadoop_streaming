@@ -1,0 +1,18 @@
+[package]
+name = "rust_hadoop_streaming"
+version = "0.1.0"
+authors = ["Dmitry Gritsay <unseductable@gmail.com>"]
+description = "An example of using Hadoop Streaming in Rust"
+
+repository = "https://github.com/d-unseductable/rust_hadoop_streaming"
+readme = "README.md"
+
+[[bin]]
+name = "mapper"
+path = "src/bin/mapper.rs"
+test = false
+
+[[bin]]
+name = "reducer"
+path = "src/bin/reducer.rs"
+test = false

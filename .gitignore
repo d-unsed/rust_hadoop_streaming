@@ -1,6 +1,5 @@
-# Executable files
-/mapper
-/reducer
+# Cargo
+target
 
 # Hadoop's output
 output/*
